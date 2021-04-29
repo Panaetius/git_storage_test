@@ -245,8 +245,14 @@ if __name__ == "__main__":
 
         activity_id = f"http://example.com/activities/{uuid.uuid4()}"
 
-        generation = Generation(activity_id, entity2, "some role", None)
-        usage = Usage(activity_id, entity, "some other role", None)
+        generation = Generation(activity_id, entity2, "".join(
+                    random.choice(string.ascii_uppercase + string.digits)
+                    for _ in range(1000000)
+                ), None)
+        usage = Usage(activity_id, entity, "".join(
+                    random.choice(string.ascii_uppercase + string.digits)
+                    for _ in range(1000000)
+                ), None)
 
         activity = Activity(
             activity_id,
